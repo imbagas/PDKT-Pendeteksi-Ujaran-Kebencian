@@ -1,0 +1,9 @@
+Untuk menjalakan visual board / tensor board
+
+ex:
+tensorboard --logdir ./runs/1528717736/summaries/
+
+untuk melakukan evaluasi dair hasil training data
+
+ex:
+python ./eval.py --checkpoint_dir="./runs/1523946851/checkpoints/"

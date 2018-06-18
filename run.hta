@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>PDKT - Panel Server APP</title>
+<HTA:APPLICATION
+  APPLICATIONNAME="PDKT - Klasifikasi"
+  ID="MyHTMLapplication"
+  VERSION="1.0"/>
+</head>
+<script>
+    window.resizeTo(500,550);
+
+function RunExe1(){
+    var shell = new ActiveXObject("WScript.Shell");
+    var path = '"E:/xampp/htdocs/pdkt/server-twitterquery.bat"';
+    shell.run(path,1,false);
+}
+function RunExe2(){
+    var shell = new ActiveXObject("WScript.Shell");
+    var path = '"E:/xampp/htdocs/pdkt/server-twitterac.bat"';
+    shell.run(path,1,false);
+}
+function RunExe3(){
+    var shell = new ActiveXObject("WScript.Shell");
+    var path = '"E:/xampp/htdocs/pdkt/server-tf.bat"';
+    shell.run(path,1,false);
+}
+function RunExe4(){
+    var shell = new ActiveXObject("WScript.Shell");
+    var path = '"E:/xampp/htdocs/pdkt/server-tb.bat"';
+    shell.run(path,1,false);
+}
+</script>
+<body bgcolor="buttonface">
+<center>
+<img src="logo.png" alt="Mountain View">
+<br>
+<input style=" color: white; background-color: #203040; 
+font-family:Book Antiqua;" type="button" Value="Server Twitter - Query" onClick="RunExe1();">
+<input style=" color: white; background-color: #203040; 
+font-family:Book Antiqua;" type="button" Value="Server Twitter - Account" onClick="RunExe2();">
+<input style=" color: white; background-color: #203040; 
+font-family:Book Antiqua;" type="button" Value="Server Klasifikasi - Tensorflow" onClick="RunExe3();">
+<input style=" color: white; background-color: #203040; 
+font-family:Book Antiqua;" type="button" Value="Server Analisis - Tensorboard" onClick="RunExe4();">
+</center>
+</body>
+</html>

@@ -1,0 +1,32 @@
+/* To Avoid flickering on angular binded data*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+/* centering mnubo logo*/
+img.img-responsive {
+    display: block;
+    margin: 35px auto;
+}
+
+.center-block {
+    /* display: block; */
+    /* margin-right: auto; */
+    /* margin-left: auto; */
+    text-align: center;
+}
+
+/* for twitter sign in and out buttons*/
+.disappear {
+    display: none;
+}
+
+.appear {
+    display: inline-block;
+}
+
+/* for footer*/
+.color-violet{
+    color: violet;
+}

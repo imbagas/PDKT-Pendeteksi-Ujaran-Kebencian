@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="twitterApp">
+    <head>
+      <meta charset='utf-8'>
+
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <link rel="stylesheet" href="styles.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+        <title>Twitter App</title>
+        <link rel="icon" href="img/stat.png" type="image" sizes="16x16">
+        <meta name="description" content="investigation on tweets of internet of things">
+        <meta name="keywords" content="twitter, internet of things, iot">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--build:css /css/style.min.css-->
+        <link rel="stylesheet" href="css/vendor/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
+        <!--/build-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <body><div id='cssmenu'>
+<ul>
+<li><a href='#'>PDKT - Pendeteksi Ujaran Kebencian  || </a></li>
+   <li class='active'><a href='#'>Home</a></li>
+   <li><a href='#'>Cari Tweet</a></li>
+   <li><a href='#'>Cari Akun</a></li>
+   <li><a href='#'>Board Analisis</a></li>
+</ul>
+</div>
+        <div class="container" data-ng-controller="twitterController">
+
+            <div class="row">
+                <button data-ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Hubungkan Twitter</button>
+                <button data-ng-click="signOut()" id="signOut" type="button" class="btn btn-link" style="display:none;">Keluar Akun</button>
+                <form  name="myForm" novalidate>
+                    <img src="img/logo.png" alt="mnubo logo" title="mnubo logo" class="img-responsive">
+                    <div class="input-group">
+                        <input type="text" placeholder="Kata Kunci" data-ng-model="searchbox.str" class="form-control" name="searchbox" data-ng-minlength="1" autofocus required>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit" data-ng-click="search(searchbox.str)" data-ng-disabled="myForm.$invalid && connectedTwitter">
+                               Cari Tweet
+                            </button>
+                        </span>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" data-ng-model="searchbox.hideImage">
+                           Sembunyikan Tweet Gambar
+                        </label>
+                    </div>
+                    <div data-ng-cloak data-ng-if="!hideMessage"> {{ tweets.length }} results in {{ timer }} seconds</div>
+                </form>
+                <table class="table table-striped" data-ng-if="!hideTable" data-ng-cloak>
+                     <tr>
+                        <th data-ng-if="!searchbox.hideImage">
+                            Tweet Content
+                        </th>
+                        <th>
+                         Tweet Image
+                     </th>
+                     </tr>
+                     <tr data-ng-repeat="tweet in tweets">
+                        <td data-ng-if="!searchbox.hideImage">
+                            {{ tweet.text }}
+                        </td>
+                        <td>
+                            <img height="350px" data-ng-src="{{ tweet.image }}">
+                        </td>
+
+                        <td>
+
+                       <a href="{{ tweet.image }}" class="btn btn-default">Lihat Gambar</a>
+					   <a href="{{ tweet.text }}" class="btn btn-default">Lihat Teks</a>
+					   <a href="http://localhost:8080/pdkt/OCR" class="btn btn-default">Proses</a>
+                        </td>
+				
+                     </tr>
+					 
+                     
+                </table>
+                <div class="twitter-connection-warning alert alert-danger" role="alert" data-ng-hide="connectedTwitter">Please connect to Twitter account before search. Thanks!</div>
+                <div>
+
+                </div>
+             </div>
+             <footer data-ng-cloak>
+                 <div class="center-block">
+                    App version : {{ version }}
+                 </div>
+                 <div class="text-center"> 
+                   
+                </div>
+             </footer>
+        </div>
+        <!--build:js /js/script.min.js-->
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/oauth.js"></script>
+        <script src="js/vendor/angular.js"></script>
+        <script src="js/vendor/angular-sanitize.js"></script>
+        <script src="js/services/twitterApp.services.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers/twitterController.js"></script>
+        <!--/build-->
+    </body>
+</html>

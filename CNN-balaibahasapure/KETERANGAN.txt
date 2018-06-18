@@ -1,0 +1,14 @@
+di label menjadi 5 bagian:
+0,1,2,3,4,5 (sepertinya berdasarkan index kepuasan rating)
+
+Dataset terbagi menjadi 2
+data dev.txt (teks yang untuk di uji)
+data train.txt (teks yang untuk di latih)
+corpus berdasarkan kaggle
+data yang sudah di label (0,1,2,3,4,5)
+
+sepertinya cuman perbandingan
+
+ALUR PROSES:
+train.txt #Data source for the training data (data yang digunakan untuk training)
+dev.txt #Data source for the evaluation data (data yang digunakan untuk uji)

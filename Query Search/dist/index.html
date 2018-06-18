@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="twitterApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Twitter App</title>
+        <link rel="icon" href="img/stat.png" type="image" sizes="16x16">
+        <meta name="description" content="investigation on tweets of internet of things">
+        <meta name="keywords" content="twitter, internet of things, iot">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/style.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="container" data-ng-controller="twitterController">
+            <div class="row">
+                <button data-ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
+                <button data-ng-click="signOut()" id="signOut" type="button" class="btn btn-link" style="display:none;">Sign Out</button>
+                <form  name="myForm" novalidate>
+                    <img src="img/logo.png" alt="mnubo logo" title="mnubo logo" class="img-responsive">
+                    <div class="input-group">
+                        <input type="text" placeholder="#iot" data-ng-model="searchbox.str" class="form-control" name="searchbox" data-ng-minlength="1" autofocus required>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit" data-ng-click="search(searchbox.str)" data-ng-disabled="myForm.$invalid && connectedTwitter">
+                                mnubo Search!
+                            </button>
+                        </span>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" data-ng-model="searchbox.hideImage">
+                            Hide Tweet Images 
+                        </label>
+                    </div>
+                    <div data-ng-cloak data-ng-if="!hideMessage"> {{ tweets.length }} results in {{ timer }} seconds</div>
+                </form>
+                <table class="table table-striped" data-ng-if="!hideTable" data-ng-cloak>
+                     <tr>
+                        <th>
+                            Tweet Content
+                        </th>
+                        <th data-ng-if="!searchbox.hideImage">
+                            Tweet Image
+                        </th>
+                     </tr>
+                     <tr data-ng-repeat="tweet in tweets">
+                        <td>
+                            {{ tweet.text }}
+                        </td>
+                        <td data-ng-if="!searchbox.hideImage">
+                            <img height="100px" data-ng-src="{{ tweet.image }}">
+                        </td>
+                     </tr>
+                     
+                </table>
+                <div class="twitter-connection-warning alert alert-danger" role="alert" data-ng-hide="connectedTwitter">Please connect to Twitter account before search. Thanks!</div>
+                <div>
+                    
+                </div>
+             </div>
+             <footer data-ng-cloak>
+                 <div class="center-block">
+                    App version : {{ version }}
+                 </div>
+                 <div class="text-center"> 
+                    MADE WITH <i class="fa fa-heart color-violet"></i> BY <span class="color-violet">ALAN SABERI</span>. FIND THIS ON <a href="https://github.com/alireza-saberi/twitter" target="_bank"><span class="color-violet">GITHUB</span></a>
+                </div>
+             </footer>
+        </div>
+        <script src="/js/script.min.js"></script>
+    </body>
+</html>
