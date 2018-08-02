@@ -4,6 +4,8 @@ Adalah aplikasi pendeteksi kalimat ujaran kebencian pada gambar yang ada di twit
 berdasarkan refrensi:
 It is slightly simplified implementation of Kim's [Convolutional Neural Networks for Sentence Classification](http://arxiv.org/abs/1408.5882) paper in Tensorflow.
 
+Jika anda menggunakan aplikasi ini sebagai refrensi jangan lupa cantumkan distribusi untuk author
+*if you using this app dont forget to attach authors name
 
 ## Requirements *yang harus di install
 
